@@ -33,44 +33,57 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
 }));
 
 // Language Toggle Functionality
-const langButtons = document.querySelectorAll('.lang-btn');
-let currentLang = 'en';
+document.addEventListener('DOMContentLoaded', function() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+    let currentLang = 'en';
 
-const translations = {
-    en: {
-        title: "Empowering Communities Through Skills & Conservation",
-        description: "CREATIVE ACTION FOR RURAL DEVELOPMENT FOUNDATION (CARD) is dedicated to empowering youth through skill development, promoting environmental sustainability, and protecting wildlife across rural and urban communities.",
-        support: "Support Our Mission",
-        learn: "Learn More"
-    },
-    hi: {
-        title: "कौशल और संरक्षण के माध्यम से समुदायों को सशक्त बनाना",
-        description: "रचनात्मक कार्य ग्रामीण विकास फाउंडेशन (CARD) कौशल विकास के माध्यम से युवाओं को सशक्त बनाने, पर्यावरणीय स्थिरता को बढ़ावा देने और ग्रामीण और शहरी समुदायों में वन्यजीवों की सुरक्षा के लिए समर्पित है।",
-        support: "हमारे मिशन का समर्थन करें",
-        learn: "और जानें"
-    }
-};
+    console.log('Language buttons found:', langButtons.length);
 
-langButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        langButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        currentLang = button.getAttribute('data-lang');
-        updateLanguage();
+    const translations = {
+        en: {
+            title: "Empowering Communities Through Skills & Conservation",
+            description: "CREATIVE ACTION FOR RURAL DEVELOPMENT FOUNDATION (CARD) is dedicated to empowering youth through skill development, promoting environmental sustainability, and protecting wildlife across rural and urban communities.",
+            support: "Support Our Mission",
+            learn: "Learn More"
+        },
+        hi: {
+            title: "कौशल और संरक्षण के माध्यम से समुदायों को सशक्त बनाना",
+            description: "रचनात्मक कार्य ग्रामीण विकास फाउंडेशन (CARD) कौशल विकास के माध्यम से युवाओं को सशक्त बनाने, पर्यावरणीय स्थिरता को बढ़ावा देने और ग्रामीण और शहरी समुदायों में वन्यजीवों की सुरक्षा के लिए समर्पित है।",
+            support: "हमारे मिशन का समर्थन करें",
+            learn: "और जानें"
+        }
+    };
+
+    langButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            console.log('Language button clicked:', button.getAttribute('data-lang'));
+            langButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            currentLang = button.getAttribute('data-lang');
+            updateLanguage();
+        });
     });
-});
 
-function updateLanguage() {
-    const heroTitle = document.querySelector('.hero-title');
-    const heroDescription = document.querySelector('.hero-description');
-    const supportBtn = document.querySelector('.hero-buttons .btn-primary');
-    const learnBtn = document.querySelector('.hero-buttons .btn-secondary');
-    
-    if (heroTitle) heroTitle.textContent = translations[currentLang].title;
-    if (heroDescription) heroDescription.textContent = translations[currentLang].description;
-    if (supportBtn) supportBtn.innerHTML = `<i class="fas fa-heart" aria-hidden="true"></i> ${translations[currentLang].support}`;
-    if (learnBtn) learnBtn.innerHTML = `${translations[currentLang].learn} <i class="fas fa-arrow-right" aria-hidden="true"></i>`;
-}
+    function updateLanguage() {
+        console.log('Updating language to:', currentLang);
+        const heroTitle = document.querySelector('.hero-title');
+        const heroDescription = document.querySelector('.hero-description');
+        const supportBtn = document.querySelector('.hero-buttons .btn-primary');
+        const learnBtn = document.querySelector('.hero-buttons .btn-secondary');
+        
+        console.log('Elements found:', {
+            heroTitle: !!heroTitle,
+            heroDescription: !!heroDescription,
+            supportBtn: !!supportBtn,
+            learnBtn: !!learnBtn
+        });
+        
+        if (heroTitle) heroTitle.textContent = translations[currentLang].title;
+        if (heroDescription) heroDescription.textContent = translations[currentLang].description;
+        if (supportBtn) supportBtn.innerHTML = `<i class="fas fa-heart" aria-hidden="true"></i> ${translations[currentLang].support}`;
+        if (learnBtn) learnBtn.innerHTML = `${translations[currentLang].learn} <i class="fas fa-arrow-right" aria-hidden="true"></i>`;
+    }
+});
 
 // Enhanced Navbar scroll effect
 window.addEventListener('scroll', () => {
