@@ -707,35 +707,6 @@ function animateCounters() {
     });
 }
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-            
-            // Animate counters when stats section is visible
-            if (entry.target.classList.contains('about-stats')) {
-                animateCounters();
-            }
-        }
-    });
-}, observerOptions);
-
-// Observe sections for animations
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-});
-
-// Observe individual cards and elements
-document.querySelectorAll('.program-card, .story-card, .stat-item, .involvement-card').forEach(element => {
-    observer.observe(element);
-});
-
 // Support button functionality
 document.addEventListener('DOMContentLoaded', function() {
     const supportButtons = document.querySelectorAll('.btn-primary');
@@ -800,26 +771,6 @@ window.addEventListener('scroll', () => {
         const speed = scrolled * 0.2;
         parallax.style.transform = `translateY(${speed}px)`;
     }
-});
-
-// Add smooth reveal animation to elements
-const revealElements = document.querySelectorAll('.program-card, .story-card, .impact-item, .involvement-card');
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, index * 100);
-        }
-    });
-}, { threshold: 0.1 });
-
-revealElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    revealObserver.observe(element);
 });
 
 // Program cards hover effect
