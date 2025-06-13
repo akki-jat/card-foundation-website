@@ -660,24 +660,6 @@ if ('serviceWorker' in navigator) {
 
 console.log('CARD Foundation website loaded successfully! 🌱');
 
-            case 'partnership':
-                responseMessage += 'Our partnership team will reach out to discuss collaboration opportunities.';
-                break;
-            case 'training':
-                responseMessage += 'Our training coordinator will contact you with information about upcoming PMKVY 4.0 and HARTRON programs.';
-                break;
-            case 'environmental':
-                responseMessage += 'Our environmental team will get back to you about tree plantation and conservation programs.';
-                break;
-            default:
-                responseMessage += 'We will get back to you soon.';
-        }
-        
-        alert(responseMessage);
-        this.reset();
-    });
-}
-
 // Counter animation for statistics
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
