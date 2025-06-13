@@ -339,6 +339,23 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
+/* Secondary buttons in light background contexts */
+.involvement-card .btn-secondary,
+.news-card .btn-secondary,
+.news-cta .btn-secondary {
+    background: rgba(45, 55, 72, 0.1);
+    color: #2d3748;
+    border: 2px solid rgba(45, 55, 72, 0.2);
+}
+
+.involvement-card .btn-secondary:hover,
+.news-card .btn-secondary:hover,
+.news-cta .btn-secondary:hover {
+    background: rgba(45, 55, 72, 0.15);
+    border-color: rgba(45, 55, 72, 0.3);
+    color: #1a202c;
+}
+
 /* Enhanced Hero Visual */
 .hero-visual {
     position: relative;
