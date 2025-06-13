@@ -15,55 +15,22 @@ setTimeout(() => {
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
-const body = document.body;
 
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        
-        // Update ARIA attributes
-        const isExpanded = hamburger.classList.contains('active');
-        hamburger.setAttribute('aria-expanded', isExpanded);
-        
-        // Prevent body scroll when menu is open
-        if (isExpanded) {
-            body.style.overflow = 'hidden';
-        } else {
-            body.style.overflow = '';
-        }
-    });
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    
+    // Update ARIA attributes
+    const isExpanded = hamburger.classList.contains('active');
+    hamburger.setAttribute('aria-expanded', isExpanded);
+});
 
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            body.style.overflow = '';
-        });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            body.style.overflow = '';
-        }
-    });
-
-    // Handle escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            body.style.overflow = '';
-        }
-    });
-}
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+}));
 
 // Language Toggle Functionality
 const langButtons = document.querySelectorAll('.lang-btn');
@@ -727,88 +694,169 @@ function animateCounters() {
     });
 }
 
-// Enhanced scroll animations
-const observeElements = () => {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
 
-    const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+            
+            // Animate counters when stats section is visible
+            if (entry.target.classList.contains('about-stats')) {
+                animateCounters();
+            }
+        }
+    });
+}, observerOptions);
+
+// Observe sections for animations
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
+
+// Observe individual cards and elements
+document.querySelectorAll('.program-card, .story-card, .stat-item, .involvement-card').forEach(element => {
+    observer.observe(element);
+});
+
+// Support button functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const supportButtons = document.querySelectorAll('.btn-primary');
+    
+    supportButtons.forEach(button => {
+        if (button.textContent.includes('Support')) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get selected amount
+                const activeButton = document.querySelector('.amount-btn.active');
+                const customAmount = document.getElementById('customAmount').value;
+                
+                let amount = 0;
+                if (activeButton) {
+                    amount = activeButton.getAttribute('data-amount');
+                } else if (customAmount) {
+                    amount = customAmount;
+                } else {
+                    alert('Please select or enter a support amount');
+                    return;
+                }
+                
+                // In a real application, you would integrate with a payment processor
+                alert(`Thank you for supporting CARD Foundation with ₹${amount}! Your contribution will help us empower more communities through skill development and environmental conservation. You will be redirected to the payment gateway.`);
+                
+                // Redirect to payment processor (placeholder)
+                // window.location.href = `https://paymentgateway.com/donate?amount=${amount}&ngo=card`;
+            });
+        }
+    });
+});
+
+// Add loading animation
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
+
+// Lazy loading for images (if you add real images later)
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Simple parallax effect for hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector('.hero');
+    if (parallax) {
+        const speed = scrolled * 0.2;
+        parallax.style.transform = `translateY(${speed}px)`;
+    }
+});
+
+// Add smooth reveal animation to elements
+const revealElements = document.querySelectorAll('.program-card, .story-card, .impact-item, .involvement-card');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe cards and sections
-    const elementsToAnimate = document.querySelectorAll('.program-card, .story-card, .team-member, .news-card, .value-item, .stat-item');
-    elementsToAnimate.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        observer.observe(el);
+            }, index * 100);
+        }
     });
-};
+}, { threshold: 0.1 });
 
-// Enhanced navbar scroll behavior
-const enhanceNavbar = () => {
-    const navbar = document.querySelector('.navbar');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    const updateNavbar = () => {
-        const scrollY = window.scrollY;
-        
-        if (scrollY > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        // Hide/show navbar on scroll
-        if (scrollY > lastScrollY && scrollY > 200) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
-        }
-
-        lastScrollY = scrollY;
-        ticking = false;
-    };
-
-    const onScroll = () => {
-        if (!ticking) {
-            requestAnimationFrame(updateNavbar);
-            ticking = true;
-        }
-    };
-
-    window.addEventListener('scroll', onScroll);
-};
-
-// Smooth scroll for anchor links
-const initSmoothScroll = () => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-};
-
-// Initialize all enhancements
-document.addEventListener('DOMContentLoaded', () => {
-    observeElements();
-    enhanceNavbar();
-    initSmoothScroll();
+revealElements.forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    revealObserver.observe(element);
 });
+
+// Program cards hover effect
+document.querySelectorAll('.program-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.borderTopColor = '#38a169';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.borderTopColor = '#22543d';
+    });
+});
+
+// Social media share functionality (placeholder)
+document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const platform = this.querySelector('i').classList[1].split('-')[1];
+        
+        // In a real implementation, you would add actual social media sharing
+        console.log(`Sharing on ${platform}`);
+        alert(`This would open ${platform} sharing dialog for CARD Foundation`);
+    });
+});
+
+// Newsletter signup (if you want to add this feature)
+function addNewsletterSignup() {
+    const footer = document.querySelector('.footer-content');
+    const newsletterSection = document.createElement('div');
+    newsletterSection.className = 'footer-section';
+    newsletterSection.innerHTML = `
+        <h4>Stay Updated</h4>
+        <p>Subscribe to our newsletter for updates on our programs and impact.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your email" required style="margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+            <button type="submit" style="padding: 8px 16px; background: #22543d; color: white; border: none; border-radius: 5px; cursor: pointer;">Subscribe</button>
+        </form>
+    `;
+    
+    footer.appendChild(newsletterSection);
+    
+    // Handle newsletter form submission
+    const newsletterForm = newsletterSection.querySelector('.newsletter-form');
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input').value;
+        alert(`Thank you for subscribing! We'll send updates about CARD Foundation's programs to ${email}`);
+        this.reset();
+    });
+}
+
+// Uncomment the line below if you want to add newsletter signup
+// addNewsletterSignup();
