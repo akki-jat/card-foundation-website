@@ -3,59 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CARD Foundation empowers communities through skill development, environmental conservation, and wildlife protection. Join our PMKVY 4.0 and HARTRON certified training programs.">
+    <meta name="keywords" content="NGO, skill development, PMKVY 4.0, HARTRON, environmental conservation, wildlife protection, rural development, youth empowerment, tree plantation, bird conservation">
+    <meta name="author" content="CARD Foundation">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://akki-jat.github.io/card-foundation-website/">
+    <meta property="og:title" content="CARD Foundation - Empowering Communities Through Skill Development & Environmental Conservation">
+    <meta property="og:description" content="Join CARD Foundation in empowering communities through certified skill development programs, environmental conservation, and wildlife protection initiatives.">
+    <meta property="og:image" content="https://akki-jat.github.io/card-foundation-website/assets/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://akki-jat.github.io/card-foundation-website/">
+    <meta property="twitter:title" content="CARD Foundation - Empowering Communities">
+    <meta property="twitter:description" content="Empowering communities through skill development, environmental conservation, and wildlife protection.">
+    <meta property="twitter:image" content="https://akki-jat.github.io/card-foundation-website/assets/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    
     <title>CARD Foundation - Empowering Communities Through Skill Development & Environmental Conservation</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NGO",
+        "name": "CREATIVE ACTION FOR RURAL DEVELOPMENT FOUNDATION",
+        "alternateName": "CARD Foundation",
+        "url": "https://akki-jat.github.io/card-foundation-website/",
+        "logo": "https://akki-jat.github.io/card-foundation-website/assets/logo.png",
+        "description": "CARD Foundation empowers communities through skill development, environmental conservation, and wildlife protection programs.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@cardfoundation.org",
+            "contactType": "customer service"
+        },
+        "sameAs": [
+            "https://facebook.com/cardfoundation",
+            "https://twitter.com/cardfoundation",
+            "https://instagram.com/cardfoundation",
+            "https://linkedin.com/company/cardfoundation"
+        ],
+        "knowsAbout": ["Skill Development", "Environmental Conservation", "Wildlife Protection", "PMKVY 4.0", "HARTRON Training"],
+        "areaServed": "India"
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
                 <h2>CARD Foundation</h2>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
+            <div class="nav-actions">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+                    <button class="lang-btn" data-lang="hi" aria-label="Switch to Hindi">हिं</button>
+                </div>
+                <ul class="nav-menu" role="menubar">
+                <li class="nav-item" role="none">
+                    <a href="#home" class="nav-link" role="menuitem" aria-label="Go to home section">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
+                <li class="nav-item" role="none">
+                    <a href="#about" class="nav-link" role="menuitem" aria-label="Learn about our foundation">About</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#programs" class="nav-link">Programs</a>
+                <li class="nav-item" role="none">
+                    <a href="#programs" class="nav-link" role="menuitem" aria-label="View our programs">Programs</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#impact" class="nav-link">Impact</a>
+                <li class="nav-item" role="none">
+                    <a href="#impact" class="nav-link" role="menuitem" aria-label="See our impact stories">Impact</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                <li class="nav-item" role="none">
+                    <a href="#contact" class="nav-link" role="menuitem" aria-label="Contact us">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#support" class="nav-link donate-btn">Support Us</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <li class="nav-item" role="none">
+                    <a href="#support" class="nav-link donate-btn" role="menuitem" aria-label="Support our mission">Support Us</a>
+                </li>                </ul>
             </div>
+            <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" role="banner">
         <div class="hero-content">
-            <h1>Empowering Communities Through Skills & Conservation</h1>
-            <p>CREATIVE ACTION FOR RURAL DEVELOPMENT FOUNDATION (CARD) is dedicated to empowering youth through skill development, promoting environmental sustainability, and protecting wildlife across rural and urban communities.</p>
-            <div class="hero-buttons">
-                <a href="#support" class="btn btn-primary">Support Our Mission</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
+            <div class="hero-text">
+                <h1 class="hero-title">Empowering Communities Through Skills & Conservation</h1>
+                <p class="hero-description">CREATIVE ACTION FOR RURAL DEVELOPMENT FOUNDATION (CARD) is dedicated to empowering youth through skill development, promoting environmental sustainability, and protecting wildlife across rural and urban communities.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label">Youth Trained</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">25,000+</span>
+                        <span class="stat-label">Trees Planted</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Villages Reached</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#support" class="btn btn-primary" aria-label="Support our mission">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                        Support Our Mission
+                    </a>
+                    <a href="#about" class="btn btn-secondary" aria-label="Learn more about us">
+                        Learn More
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-visual">
+                    <div class="floating-elements">
+                        <div class="floating-element" style="--delay: 0s">
+                            <i class="fas fa-seedling" aria-hidden="true"></i>
+                        </div>
+                        <div class="floating-element" style="--delay: 1s">
+                            <i class="fas fa-dove" aria-hidden="true"></i>
+                        </div>
+                        <div class="floating-element" style="--delay: 2s">
+                            <i class="fas fa-users" aria-hidden="true"></i>
+                        </div>
+                        <div class="floating-element" style="--delay: 3s">
+                            <i class="fas fa-tools" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="hero-main-icon">
+                        <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="hero-image">
-            <div class="placeholder-image">
-                <i class="fas fa-seedling"></i>
+        <div class="scroll-indicator" aria-label="Scroll down to learn more">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </div>
         </div>
     </section>
@@ -101,6 +210,66 @@
                     <div class="stat-item">
                         <div class="stat-number">50+</div>
                         <div class="stat-label">Species Protected</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Leadership Team</h2>
+                <p>Meet the dedicated professionals driving our mission forward</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user-tie" aria-hidden="true"></i>
+                    </div>
+                    <h3>Dr. Rajesh Sharma</h3>
+                    <p class="member-role">Founder & Director</p>
+                    <p class="member-bio">25+ years of experience in rural development and environmental conservation. PhD in Environmental Sciences.</p>
+                    <div class="member-social">
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Email contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user-graduate" aria-hidden="true"></i>
+                    </div>
+                    <h3>Priya Patel</h3>
+                    <p class="member-role">Head of Skill Development</p>
+                    <p class="member-bio">Expert in vocational training with PMKVY and HARTRON certifications. 15+ years in youth empowerment.</p>
+                    <div class="member-social">
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Email contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <h3>Dr. Amit Kumar</h3>
+                    <p class="member-role">Environmental Conservation Lead</p>
+                    <p class="member-bio">Wildlife biologist specializing in bird conservation and habitat restoration. 20+ years of field experience.</p>
+                    <div class="member-social">
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Email contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                    </div>
+                    <h3>Sunita Devi</h3>
+                    <p class="member-role">Community Outreach Director</p>
+                    <p class="member-bio">Community development specialist with expertise in rural engagement and women empowerment programs.</p>
+                    <div class="member-social">
+                        <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Email contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -210,6 +379,63 @@
         </div>
     </section>
 
+    <!-- News & Updates Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest News & Updates</h2>
+                <p>Stay informed about our recent activities and upcoming events</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-seedling" aria-hidden="true"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">June 10, 2025</span>
+                            <span class="news-category">Environmental</span>
+                        </div>
+                        <h3>Massive Tree Plantation Drive Completes 5,000 Saplings</h3>
+                        <p>Our recent tree plantation initiative in rural Haryana has successfully planted 5,000 native saplings, contributing to environmental restoration and climate change mitigation.</p>
+                        <a href="#" class="read-more" aria-label="Read full article about tree plantation">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">June 5, 2025</span>
+                            <span class="news-category">Education</span>
+                        </div>
+                        <h3>200 Youth Complete PMKVY 4.0 Certification</h3>
+                        <p>Another successful batch of 200 young people has completed our PMKVY 4.0 skill development program, with 85% already securing employment opportunities.</p>
+                        <a href="#" class="read-more" aria-label="Read full article about PMKVY certification">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-dove" aria-hidden="true"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">May 28, 2025</span>
+                            <span class="news-category">Wildlife</span>
+                        </div>
+                        <h3>Bird Conservation Program Saves 15 Endangered Species</h3>
+                        <p>Our wildlife conservation efforts have successfully rehabilitated and released 15 endangered bird species back into their natural habitats across three states.</p>
+                        <a href="#" class="read-more" aria-label="Read full article about bird conservation">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+            </div>
+            <div class="news-cta">
+                <a href="#" class="btn btn-secondary">View All News</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Support Section -->
     <section id="support" class="donate">
         <div class="container">
@@ -239,16 +465,46 @@
                 <div class="donate-form">
                     <h3>Choose Your Support Amount</h3>
                     <div class="amount-buttons">
-                        <button class="amount-btn" data-amount="1000">₹1,000</button>
-                        <button class="amount-btn" data-amount="2500">₹2,500</button>
-                        <button class="amount-btn" data-amount="5000">₹5,000</button>
-                        <button class="amount-btn" data-amount="10000">₹10,000</button>
+                        <button class="amount-btn" data-amount="1000" aria-label="Donate 1000 rupees">₹1,000</button>
+                        <button class="amount-btn" data-amount="2500" aria-label="Donate 2500 rupees">₹2,500</button>
+                        <button class="amount-btn" data-amount="5000" aria-label="Donate 5000 rupees">₹5,000</button>
+                        <button class="amount-btn" data-amount="10000" aria-label="Donate 10000 rupees">₹10,000</button>
                     </div>
                     <div class="custom-amount">
-                        <input type="number" id="customAmount" placeholder="Enter custom amount (₹)">
+                        <input type="number" id="customAmount" placeholder="Enter custom amount (₹)" min="100" aria-label="Enter custom donation amount">
                     </div>
-                    <button class="btn btn-primary btn-large">Support Now</button>
-                    <p class="donate-note">Your contribution is secure and helps create lasting change</p>
+                    <div class="payment-methods">
+                        <h4>Payment Methods</h4>
+                        <div class="payment-options">
+                            <div class="payment-option" data-method="upi">
+                                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                                <span>UPI</span>
+                            </div>
+                            <div class="payment-option" data-method="card">
+                                <i class="fas fa-credit-card" aria-hidden="true"></i>
+                                <span>Card</span>
+                            </div>
+                            <div class="payment-option" data-method="netbanking">
+                                <i class="fas fa-university" aria-hidden="true"></i>
+                                <span>Net Banking</span>
+                            </div>
+                            <div class="payment-option" data-method="wallet">
+                                <i class="fas fa-wallet" aria-hidden="true"></i>
+                                <span>Wallet</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-large" id="donateBtn">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                        Donate Securely
+                    </button>
+                    <p class="donate-note">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        Your contribution is secure and helps create lasting change
+                    </p>
+                    <div class="tax-info">
+                        <p><strong>Tax Benefits:</strong> 80G Tax exemption available. You will receive a tax deductible receipt.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -407,13 +663,109 @@
                         <p>Email: info@cardfoundation.org</p>
                         <p>Phone: +91 XXXXX XXXXX</p>
                     </div>
+                    <div class="footer-certifications">
+                        <img src="assets/pmkvy-logo.png" alt="PMKVY Certification" class="cert-logo">
+                        <img src="assets/hartron-logo.png" alt="HARTRON Certification" class="cert-logo">
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#privacy-policy" aria-label="Read our privacy policy">Privacy Policy</a></li>
+                        <li><a href="#terms-of-service" aria-label="Read our terms of service">Terms of Service</a></li>
+                        <li><a href="#annual-reports" aria-label="View our annual reports">Annual Reports</a></li>
+                        <li><a href="#transparency" aria-label="View transparency information">Transparency</a></li>
+                    </ul>
                 </div>
             </div>
+            <div class="newsletter-signup">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for updates on programs and impact stories</p>
+                <form class="newsletter-form" aria-label="Newsletter signup">
+                    <div class="newsletter-input-group">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address for newsletter">
+                        <button type="submit" aria-label="Subscribe to newsletter">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 CREATIVE ACTION FOR RURAL DEVELOPMENT FOUNDATION (CARD). All rights reserved. | Privacy Policy | Terms of Service</p>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 CREATIVE ACTION FOR RURAL DEVELOPMENT FOUNDATION (CARD). All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#privacy-policy">Privacy Policy</a>
+                        <span>|</span>
+                        <a href="#terms-of-service">Terms of Service</a>
+                        <span>|</span>
+                        <a href="#transparency">Transparency</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal" role="dialog" aria-labelledby="privacy-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="privacy-title">Privacy Policy</h2>
+                <button class="modal-close" aria-label="Close privacy policy">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Information Collection</h3>
+                <p>We collect information you provide directly to us, such as when you contact us, donate, or subscribe to our newsletter.</p>
+                
+                <h3>Use of Information</h3>
+                <p>We use the information we collect to provide our services, process donations, communicate with you, and improve our programs.</p>
+                
+                <h3>Information Sharing</h3>
+                <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.</p>
+                
+                <h3>Data Security</h3>
+                <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                
+                <h3>Contact Us</h3>
+                <p>If you have questions about this Privacy Policy, please contact us at info@cardfoundation.org</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="modal" role="dialog" aria-labelledby="terms-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="terms-title">Terms of Service</h2>
+                <button class="modal-close" aria-label="Close terms of service">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Acceptance of Terms</h3>
+                <p>By using our website and services, you agree to comply with and be bound by these terms and conditions.</p>
+                
+                <h3>Use License</h3>
+                <p>Permission is granted to temporarily download one copy of our materials for personal, non-commercial transitory viewing only.</p>
+                
+                <h3>Donations</h3>
+                <p>All donations are final and non-refundable unless otherwise specified. We reserve the right to use donations for our charitable purposes.</p>
+                
+                <h3>User Conduct</h3>
+                <p>You agree not to use our services for any unlawful purpose or in any way that could harm our organization or its mission.</p>
+                
+                <h3>Modifications</h3>
+                <p>We may revise these terms at any time without notice. By using this website, you agree to be bound by the current version of these terms.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-overlay" aria-hidden="true">
+        <div class="spinner">
+            <div class="spinner-inner">
+                <i class="fas fa-seedling" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
