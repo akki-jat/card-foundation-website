@@ -1,3 +1,17 @@
+// Immediate failsafe to hide loading in case of any issues
+setTimeout(() => {
+    hideLoading();
+}, 500);
+
+// Additional failsafe for slow networks
+setTimeout(() => {
+    const loading = document.getElementById('loading');
+    if (loading && !loading.classList.contains('hidden')) {
+        console.warn('Loading took too long, forcing hide');
+        hideLoading();
+    }
+}, 2000);
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -434,13 +448,21 @@ function hideLoading() {
 }
 
 // Enhanced page loading animation
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    // Hide loading immediately when DOM is ready
     document.body.classList.add('loaded');
     hideLoading();
     
-    // Animate hero elements
+    // Set initial state for hero elements
+    const heroElements = document.querySelectorAll('.hero-title, .hero-description, .hero-stats, .hero-buttons');
+    heroElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+    
+    // Animate hero elements after DOM is ready
     setTimeout(() => {
-        const heroElements = document.querySelectorAll('.hero-title, .hero-description, .hero-stats, .hero-buttons');
         heroElements.forEach((element, index) => {
             setTimeout(() => {
                 element.style.opacity = '1';
@@ -450,22 +472,10 @@ window.addEventListener('load', () => {
     }, 300);
 });
 
-// Initialize loading state
-document.addEventListener('DOMContentLoaded', () => {
-    // Set initial loading state
-    const heroElements = document.querySelectorAll('.hero-title, .hero-description, .hero-stats, .hero-buttons');
-    heroElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    // Hide loading after short delay if already loaded
-    setTimeout(() => {
-        if (document.readyState === 'complete') {
-            hideLoading();
-        }
-    }, 100);
+// Fallback for window load event
+window.addEventListener('load', () => {
+    // Ensure loading is hidden even if DOMContentLoaded didn't work
+    hideLoading();
 });
 
 // Lazy loading for images (enhanced for future image additions)
