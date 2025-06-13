@@ -668,19 +668,6 @@ window.addEventListener('error', function(e) {
     // In production, you might want to send this to an error tracking service
 });
 
-// Service worker registration for PWA capabilities (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-                console.log('SW registered: ', registration);
-            })
-            .catch((registrationError) => {
-                console.log('SW registration failed: ', registrationError);
-            });
-    });
-}
-
 console.log('CARD Foundation website loaded successfully! 🌱');
 
 // Counter animation for statistics
