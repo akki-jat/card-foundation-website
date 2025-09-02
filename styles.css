@@ -1834,7 +1834,7 @@ body {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    min-height: 600px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
 }
@@ -1879,6 +1879,9 @@ body {
     object-fit: cover;
     object-position: center top;
     border-radius: 50%;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .team-member h3 {
@@ -1898,7 +1901,7 @@ body {
 .member-bio {
     color: var(--neutral-medium);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.25rem;
     font-size: 0.95rem;
 }
 
@@ -1933,8 +1936,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-top: auto;
-    padding-top: 1.5rem;
+    padding-top: 0.25rem;
 }
 
 .member-contact a {
@@ -2755,6 +2757,26 @@ body {
         max-width: 500px;
     }
     
+    .member-photo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1rem;
+    }
+    
+    .member-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        border-radius: 50%;
+        display: block;
+    }
+    
+    .team-member {
+        min-height: 320px;
+        padding: 2rem;
+    }
+    
     .news-grid {
         grid-template-columns: 1fr;
     }
@@ -3024,6 +3046,33 @@ body {
     .tax-info {
         padding: 1.25rem;
         font-size: 0.9rem;
+    }
+    
+    .team-member {
+        min-height: 280px;
+        padding: 1.5rem;
+    }
+    
+    .member-photo {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 0.75rem;
+    }
+    
+    .team-member h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .member-role {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .member-bio {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
     }
 }
 
