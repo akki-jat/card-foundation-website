@@ -221,7 +221,7 @@ if (contactForm) {
                 responseMessage += 'Our partnership team will reach out within 1-2 business days to discuss collaboration opportunities. We look forward to exploring how we can work together.';
                 break;
             case 'training':
-                responseMessage += 'Our training coordinator will contact you with information about upcoming PMKVY 4.0 and HARTRON programs. We\'ll send you the application forms and schedule details.';
+                responseMessage += 'Our training coordinator will contact you with information about upcoming PMKVY 4.0 programs. We\'ll send you the application forms and schedule details.';
                 break;
             case 'environmental':
                 responseMessage += 'Our environmental team will get back to you about tree plantation and conservation programs. There are many ways to get involved in protecting our environment!';

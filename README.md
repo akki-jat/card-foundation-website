@@ -151,7 +151,7 @@ The website includes PWA features:
 
 ## 🎯 Programs Offered
 
-- **Skill Development**: PMKVY 4.0 and HARTRON certified training programs
+- **Skill Development**: PMKVY 4.0 certified training programs
 - **Environmental Conservation**: Tree plantation and sustainability initiatives
 - **Wildlife Protection**: Native bird species and wildlife conservation
 - **Youth Engagement**: Training and awareness camps
@@ -192,7 +192,6 @@ For more information about CARD Foundation:
 ## 🏆 Certifications & Partnerships
 
 - **PMKVY 4.0** Authorized Training Partner
-- **HARTRON** Skill Development Center
 - Government recognized NGO
 
 ## 🔮 Future Enhancements
