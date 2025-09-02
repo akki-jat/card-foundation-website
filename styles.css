@@ -720,8 +720,8 @@ body {
 
 .about-content {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
-    gap: 5rem;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
     align-items: start;
     position: relative;
     z-index: 1;
@@ -827,7 +827,7 @@ body {
 
 .stat-item {
     text-align: center;
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1rem;
     background: var(--background-pure);
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-lg);
@@ -3117,20 +3117,27 @@ html {
 
 /* Foundation Visual */
 .foundation-visual {
-    margin: 3rem 0;
-    text-align: center;
-    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: var(--background-white);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
 }
 
 .foundation-image {
     max-width: 100%;
-    width: auto;
+    width: 100%;
     height: auto;
-    max-height: 200px;
+    max-height: 500px;
     border-radius: var(--radius-lg);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     transition: all 0.3s ease;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .foundation-image:hover {
@@ -3138,14 +3145,59 @@ html {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
 }
 
+/* Fix About Stats Grid Layout */
+.about-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    margin-top: 2rem !important;
+    gap: 1.5rem !important;
+    width: 100%;
+    overflow: hidden;
+}
+
 /* Responsive for Foundation Visual */
-@media (max-width: 768px) {
-    .foundation-visual {
-        margin: 2rem 0;
-        padding: 1rem 0;
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 3rem;
     }
     
     .foundation-image {
-        max-height: 150px;
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .foundation-visual {
+        padding: 1.5rem;
+        position: static;
+        margin: 2rem 0 0 0;
+    }
+    
+    .foundation-image {
+        max-height: 250px;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .stat-item {
+        padding: 1.5rem 0.75rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-stats {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .foundation-visual {
+        padding: 1rem;
+    }
+    
+    .foundation-image {
+        max-height: 200px;
     }
 }
